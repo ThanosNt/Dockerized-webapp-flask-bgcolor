@@ -17,9 +17,9 @@ color_codes = {
 
 SUPPORTED_COLORS = ",".join(color_codes.keys())
 
-# Get color from Environment variable
-COLOR_FROM_ENV = os.environ.get('APP_COLOR')
-# Generate a random color
+# Get hex color from Environment variable
+COLOR_FROM_ENV = os.environ.get('APP_COLORHEXCODE')
+# Generate a random hex color
 COLOR = random.choice(["red", "green", "blue", "olive", "purple", "navy"])
 # Get dynamic title from Environment variable
 TITLE_FROM_ENV = os.environ.get('APP_TITLE')
@@ -54,9 +54,9 @@ if __name__ == "__main__":
     parser.add_argument('--title', required=False)
     args = parser.parse_args()
 
-    if args.color:
-        print("Color from command line argument =" + args.color)
-        COLOR = args.color
+    if args.colorhexcode:
+        print("Color from command line argument =" + args.colorhexcode)
+        COLOR = args.colorhexcode
         if COLOR_FROM_ENV:
             print("A color was set through environment variable -" + COLOR_FROM_ENV + ". However, color from command line argument takes precendence.")
     elif COLOR_FROM_ENV:
